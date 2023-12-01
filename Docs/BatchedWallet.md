@@ -10,8 +10,9 @@ Read more at: https://www.erc4337.io/docs/understanding-ERC-4337/entry-point-con
 
 The BatchedWallet is a fork of [SimpleAccount](https://github.com/eth-infinitism/account-abstraction/blob/develop/contracts/samples/SimpleAccount.sol)
 
-Changes to forked contract:
-use recent OZ version
+Changes to forked contract:  
+- use recent OZ version
+- remove _disableInitializers() from the constructor
 
 ## Functions
 
