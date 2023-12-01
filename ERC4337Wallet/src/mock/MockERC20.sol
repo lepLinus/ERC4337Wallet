@@ -8,4 +8,7 @@ contract MockERC20 is ERC20 {
     constructor(uint256 initialSupply) ERC20("Test", "T") {
         _mint(msg.sender, initialSupply);
     }
+
+    receive() external payable {}
+    fallback() external payable{}
 }

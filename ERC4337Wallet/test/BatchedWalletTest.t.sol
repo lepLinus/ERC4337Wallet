@@ -13,21 +13,29 @@ contract BatchedWalletTest is Test {
     //Not used but required for setup
     IEntryPoint public anEntryPoint;
 
+    receive() external payable {}
+    fallback() external payable{}
 
     function setUp() public {
         batchedWallet = new BatchedWallet(anEntryPoint);
         batchedWallet.initialize(address(this));
-
+        
+        vm.deal(address(this), 1 ether);
         token = new MockERC20(100000);
     }
 
     function test_ETHTransfer() public {
-        batchedWallet.execute(address(token),1,"");
+        bytes memory fun = abi.encode("");
+
+        payable(batchedWallet).transfer(1);
+        console2.log(address(batchedWallet).balance);
+
+        batchedWallet.execute(address(token),1,fun);
         assertEq(address(token).balance, 1);
     }
 
     function test_BatchETHTransfer() public {
-
+ 
         address[] memory des = new address[](2);
         des[0] = address(token);
         des[1] = address(token);
@@ -37,6 +45,12 @@ contract BatchedWalletTest is Test {
         values[1] = 2;
 
         bytes[] memory data = new bytes[](2);
+        data[0] = "";
+        data[1] = "";
+
+        payable(batchedWallet).transfer(3);
+        console2.log(address(batchedWallet).balance);
+
 
         uint256 balanceBefore = address(token).balance;
 
@@ -56,6 +70,6 @@ contract BatchedWalletTest is Test {
         //transfer tokens back to this account
         batchedWallet.execute(address(token),0,data);
 
-        assertEq(token.balanceOf(address(this)), balanceBefore + 10);
+        assertEq(token.balanceOf(address(this)), balanceBefore);
     }
 }
