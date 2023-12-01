@@ -1,0 +1,3 @@
+[submodule "ERC4337Wallet/lib/forge-std"]
+	path = ERC4337Wallet/lib/forge-std
+	url = https://github.com/foundry-rs/forge-std
