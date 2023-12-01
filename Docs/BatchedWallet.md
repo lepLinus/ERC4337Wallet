@@ -6,7 +6,7 @@ The BatchedWallet is a simple implementation of the erc4337 standart.
 It allows to batch transactions, and includes requiered functions to use "Entrypoints".
 
 Entrypoints are contracts that are deployed on each chain onces, and should be used by all erc4337 wallets.
-Read more at: ["https://www.erc4337.io/docs/understanding-ERC-4337/entry-point-contract"]
+Read more at: https://www.erc4337.io/docs/understanding-ERC-4337/entry-point-contract
 
 ## Functions
 
