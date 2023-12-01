@@ -6,6 +6,7 @@ pragma solidity ^0.8.12;
 /* solhint-disable reason-string */
 
 import "@openzeppelin/contracts/utils/cryptography/ECDSA.sol";
+import "@openzeppelin/contracts/utils/cryptography/MessageHashUtils.sol";
 import "@openzeppelin/contracts/proxy/utils/Initializable.sol";
 import "@openzeppelin/contracts/proxy/utils/UUPSUpgradeable.sol";
 
@@ -20,6 +21,7 @@ import "./lib/TokenCallbackHandler.sol";
   */
 contract BatchedWallet is BaseAccount, TokenCallbackHandler, UUPSUpgradeable, Initializable {
     using ECDSA for bytes32;
+    using MessageHashUtils for bytes32;
 
     address public owner;
 
@@ -43,7 +45,7 @@ contract BatchedWallet is BaseAccount, TokenCallbackHandler, UUPSUpgradeable, In
 
     constructor(IEntryPoint anEntryPoint) {
         _entryPoint = anEntryPoint;
-        _disableInitializers();
+      //  _disableInitializers();
     }
 
     function _onlyOwner() internal view {

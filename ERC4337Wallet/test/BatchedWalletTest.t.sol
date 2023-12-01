@@ -22,39 +22,39 @@ contract BatchedWalletTest is Test {
     }
 
     function test_ETHTransfer() public {
-        batchedWallet.execute(token,1,"");
-        assertEq(token.balance(), 1);
+        batchedWallet.execute(address(token),1,"");
+        assertEq(address(token).balance, 1);
     }
 
     function test_BatchETHTransfer() public {
 
-        address[2] memory des = new address[2];
-        des[0] = token;
-        des[1] = token;
+        address[] memory des = new address[](2);
+        des[0] = address(token);
+        des[1] = address(token);
 
-        uint256[2] memory values = new uint256[2];
+        uint256[] memory values = new uint256[](2);
         values[0] = 1;
         values[1] = 2;
 
-        bytes[2] memory data = new bytes[2];
+        bytes[] memory data = new bytes[](2);
 
-        uint256 balanceBefore = token.balance();
+        uint256 balanceBefore = address(token).balance;
 
         batchedWallet.executeBatch(des,values,data);
 
-        assertEq(token.balance(), balanceBefore + 3);
+        assertEq(address(token).balance, balanceBefore + 3);
     }
 
     function test_tokenTransfer() public {
 
-        bytes memory data = abi.encodeWithSelector("transfer(address,uint256)", address(this),10);
+        bytes memory data = abi.encodeWithSignature("transfer(address,uint256)", address(this),10);
         uint256 balanceBefore = token.balanceOf(address(this));
 
         //transfer tokens to batchedWallet
-        token.transfer(batchedWallet,10);
+        token.transfer(address(batchedWallet),10);
 
         //transfer tokens back to this account
-        batchedWallet.execute(token,0,data);
+        batchedWallet.execute(address(token),0,data);
 
         assertEq(token.balanceOf(address(this)), balanceBefore + 10);
     }
