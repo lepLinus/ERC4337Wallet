@@ -11,4 +11,4 @@ To read the technical documentation of BatchedWallet visit:
 To read about the different test cases visit:
 [Tests](Docs/Test.md)
 
-This project uses foundery, to read about setup and tests go to [Setup](/ERC4337Wallet/README.md). 
+This project uses foundry, to read about setup and tests go to [Setup](/ERC4337Wallet/README.md). 
