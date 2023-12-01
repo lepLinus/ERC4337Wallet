@@ -72,4 +72,28 @@ contract BatchedWalletTest is Test {
 
         assertEq(token.balanceOf(address(this)), balanceBefore);
     }
+
+    function test_revertOnDifferentArraySizeTest() public {
+ 
+        address[] memory des = new address[](1);
+        des[0] = address(token);
+
+        uint256[] memory values = new uint256[](2);
+        values[0] = 1;
+        values[1] = 2;
+
+        bytes[] memory data = new bytes[](2);
+        data[0] = "";
+        data[1] = "";
+
+        payable(batchedWallet).transfer(3);
+        console2.log(address(batchedWallet).balance);
+
+
+        uint256 balanceBefore = address(token).balance;
+
+        vm.expectRevert();
+        batchedWallet.executeBatch(des,values,data);
+
+    }
 }

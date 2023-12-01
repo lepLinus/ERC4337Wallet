@@ -8,6 +8,11 @@ It allows to batch transactions, and includes requiered functions to use "Entryp
 Entrypoints are contracts that are deployed on each chain onces, and should be used by all erc4337 wallets.
 Read more at: https://www.erc4337.io/docs/understanding-ERC-4337/entry-point-contract
 
+The BatchedWallet is a fork of [SimpleAccount](https://github.com/eth-infinitism/account-abstraction/blob/develop/contracts/samples/SimpleAccount.sol)
+
+Changes to forked contract:
+use recent OZ version
+
 ## Functions
 
 ### State Chaning functions

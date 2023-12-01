@@ -8,4 +8,7 @@ To read more about the different ideas why and why not to use erc4337 visit:
 To read the technical documentation of BatchedWallet visit:
 [Docs](Docs/BatchedWallet.md)
 
-This project uses foundery, to read about setup and tests go to ./ERC4337Wallet. 
+To read about the different test cases visit:
+[Tests](Docs/BatchedWallet.md)
+
+This project uses foundery, to read about setup and tests go to [Setup](/ERC4337Wallet/README.md). 
