@@ -21,4 +21,4 @@ It transfers 10 wei of MockERC20 to the batchWallet, and sends it back to the te
 
 ### test_revertOnDifferentArraySizeTest
 
-This test show that when batch transfer is called with different array size the transactio reverts.
+This test shows that when batch transfer is called with a different array size the transactio reverts.
