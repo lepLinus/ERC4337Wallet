@@ -14,3 +14,11 @@ Looking at the system, there are some concerns and advantages. A big worry is th
 Another issue is the newness of ERC4337; even the official documentation isn't complete. Although OpenZeppelin audits the contracts, there might be undiscovered issues affecting the entire system.
 
 Despite these concerns, I see value in core ideas like gasless transactions and batch execution. However, I suggest exploring simpler smart contract-based approaches to achieve these goals, reducing reliance on centralized elements and making the system more robust.
+
+## Additionall comments on 03.12.2023
+
+gnosis save launched an erc4337 wallet which 1 day later got taken down due to security concerns:
+https://www.coinlive.com/news-flash/351957
+https://twitter.com/safe/status/1731291740081205347
+
+The tech seems interesting but using new contracts always creates risks.
